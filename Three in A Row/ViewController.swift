@@ -9,18 +9,42 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var position0: UIImageView!
+    @IBOutlet weak var block0: UIImageView!
+    @IBOutlet weak var block1: UIImageView!
+    
+    @IBOutlet weak var block2: UIImageView!
+    @IBOutlet weak var block3: UIImageView!
+    @IBOutlet weak var block4: UIImageView!
+    @IBOutlet weak var block5: UIImageView!
+    @IBOutlet weak var block6: UIImageView!
+    @IBOutlet weak var block7: UIImageView!
+    @IBOutlet weak var block8: UIImageView!
+    
+    var listOfBlocks: Array<UIImageView> = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional  setup after loading the view.
+        
+        listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
     }
 
 
     @IBAction func position0Tapped(_ sender: UITapGestureRecognizer) {
         
-        position0.image = #imageLiteral(resourceName: "addmealphoto")
+        print("ff")
+        print(sender.view?.tag ?? 10)
+        
+        changePhoto(tagNumber: sender.view?.tag ?? 10)
+        
+        
+        //position0.image = #imageLiteral(resourceName: "addmealphoto")
+    }
+    
+    func changePhoto (tagNumber: Int){
+        listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "addmealphoto")
+        
     }
 }
 
