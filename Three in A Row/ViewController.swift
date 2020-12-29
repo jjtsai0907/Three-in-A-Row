@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var block0: UIImageView!
     @IBOutlet weak var block1: UIImageView!
-    
     @IBOutlet weak var block2: UIImageView!
     @IBOutlet weak var block3: UIImageView!
     @IBOutlet weak var block4: UIImageView!
@@ -22,6 +21,8 @@ class ViewController: UIViewController {
     
     var listOfBlocks: Array<UIImageView> = []
     
+    var whosturn: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func position0Tapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
         print("ff")
         print(sender.view?.tag ?? 10)
@@ -43,7 +44,20 @@ class ViewController: UIViewController {
     }
     
     func changePhoto (tagNumber: Int){
-        listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "addmealphoto")
+        
+        if whosturn {
+        
+            listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "addmealphoto")
+            listOfBlocks[tagNumber].isUserInteractionEnabled = false
+            whosturn = false
+        }
+        else{
+            listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "round2")
+            listOfBlocks[tagNumber].isUserInteractionEnabled = false
+            whosturn = true
+        }
+        
+        
         
     }
 }

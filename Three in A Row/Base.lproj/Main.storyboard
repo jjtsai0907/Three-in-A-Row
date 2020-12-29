@@ -164,47 +164,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="9e0-ub-1Oh" userLabel="Tap0 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="mOg-O6-6ix"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="mOg-O6-6ix"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="qL7-OP-3dJ" userLabel="Tap1Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="hYe-8a-hvY"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="hYe-8a-hvY"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Y4T-dw-ZZi" userLabel="Tap2 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="qky-Th-5hS"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="qky-Th-5hS"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="044-ec-r7p" userLabel="Tap3 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="TFk-9x-a3s"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="TFk-9x-a3s"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="zgK-cc-pgp" userLabel="Tap4 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="eYt-5d-FGX"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="eYt-5d-FGX"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="HcH-YP-ODX" userLabel="Tap5 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="fA8-pb-3br"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="fA8-pb-3br"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="NvO-ms-bYc" userLabel="Tap6 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="fm4-tq-GKx"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="fm4-tq-GKx"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="KnV-Td-G2n" userLabel="Tap7 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="QwA-xK-MMw"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="QwA-xK-MMw"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="oPT-86-fph" userLabel="Tap8 Gesture Recognizer">
                     <connections>
-                        <action selector="position0Tapped:" destination="BYZ-38-t0r" id="J84-cU-Y9e"/>
+                        <action selector="blockTapped:" destination="BYZ-38-t0r" id="J84-cU-Y9e"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
