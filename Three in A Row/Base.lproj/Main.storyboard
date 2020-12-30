@@ -24,7 +24,26 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-cM-Chz" userLabel="Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="baq-cp-Bv4">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                                <color key="progressTintColor" systemColor="systemGreenColor"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eEQ-Jb-eEH">
+                                                <rect key="frame" x="154.5" y="14" width="105.5" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="eEQ-Jb-eEH" firstAttribute="centerY" secondItem="Rox-cM-Chz" secondAttribute="centerY" id="4da-sZ-Yla"/>
+                                            <constraint firstItem="baq-cp-Bv4" firstAttribute="leading" secondItem="Rox-cM-Chz" secondAttribute="leading" id="7T0-d9-djI"/>
+                                            <constraint firstAttribute="trailing" secondItem="baq-cp-Bv4" secondAttribute="trailing" id="88L-l5-hIj"/>
+                                            <constraint firstAttribute="bottom" secondItem="baq-cp-Bv4" secondAttribute="bottom" id="DE3-qU-15n"/>
+                                            <constraint firstItem="baq-cp-Bv4" firstAttribute="top" secondItem="Rox-cM-Chz" secondAttribute="top" id="f8f-eW-rzd"/>
+                                            <constraint firstItem="eEQ-Jb-eEH" firstAttribute="centerX" secondItem="Rox-cM-Chz" secondAttribute="centerX" id="tnY-5g-Sbn"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yW-aZ-RRg" userLabel="Middle View">
                                         <rect key="frame" x="0.0" y="97" width="414" height="624"/>
@@ -128,6 +147,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-M3-7HP" userLabel="Bottom View">
                                         <rect key="frame" x="0.0" y="736" width="414" height="82"/>
                                         <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rlg-Uv-68e">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
+                                                <color key="progressTintColor" systemColor="systemTealColor"/>
+                                            </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-nf-5Er">
                                                 <rect key="frame" x="154.5" y="14" width="105.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
@@ -135,10 +158,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Rlg-Uv-68e" secondAttribute="bottom" id="240-5Z-BwV"/>
                                             <constraint firstItem="GL3-nf-5Er" firstAttribute="centerY" secondItem="vwh-M3-7HP" secondAttribute="centerY" id="51j-T6-vJF"/>
                                             <constraint firstItem="GL3-nf-5Er" firstAttribute="centerX" secondItem="vwh-M3-7HP" secondAttribute="centerX" id="BpR-Hp-xf0"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rlg-Uv-68e" secondAttribute="trailing" id="EMb-wP-f3d"/>
+                                            <constraint firstItem="Rlg-Uv-68e" firstAttribute="leading" secondItem="vwh-M3-7HP" secondAttribute="leading" id="a1x-02-UCo"/>
+                                            <constraint firstItem="Rlg-Uv-68e" firstAttribute="top" secondItem="vwh-M3-7HP" secondAttribute="top" id="yAK-IL-4fs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -172,6 +198,9 @@
                         <outlet property="block7" destination="n3b-PX-zaJ" id="Pmh-jz-ajC"/>
                         <outlet property="block8" destination="AIf-3A-YIb" id="Xu1-KV-1Wt"/>
                         <outlet property="bluePlayer" destination="GL3-nf-5Er" id="xVD-TZ-6s5"/>
+                        <outlet property="blueProgressBar" destination="Rlg-Uv-68e" id="yvc-9h-MwX"/>
+                        <outlet property="greenPlayer" destination="eEQ-Jb-eEH" id="kFs-BF-oAy"/>
+                        <outlet property="greenProgressBar" destination="baq-cp-Bv4" id="PMt-L1-Hri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

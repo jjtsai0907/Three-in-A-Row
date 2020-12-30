@@ -20,18 +20,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var block8: UIImageView!
     
     @IBOutlet weak var bluePlayer: UILabel!
+    @IBOutlet weak var greenPlayer: UILabel!
+    @IBOutlet weak var blueProgressBar: UIProgressView!
+    
+    @IBOutlet weak var greenProgressBar: UIProgressView!
     
     var listOfBlocks: Array<UIImageView> = []
     
     var whosturn: Bool = false
     
-    var turnSeconds = 5
+    let totalSeconds: Float = 5
+    var turnSeconds: Float = 5
+    
     var timer = Timer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional  setup after loading the view.
+        
+        greenPlayer.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
     }
@@ -46,7 +54,7 @@ class ViewController: UIViewController {
         
         changePhoto(tagNumber: sender.view?.tag ?? 10)
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
     }
     
@@ -70,14 +78,34 @@ class ViewController: UIViewController {
     
     
     @objc func updateTimer(){
-        if turnSeconds == 0{
+        if turnSeconds < 0 {
             timer.invalidate()
             
         }
         
+        if whosturn {
+            // round blue
+            bluePlayer.text = String(Int(ceil(turnSeconds)))
+            greenPlayer.text = "Blue's Turn"
+            greenProgressBar.progress = 1.0
+            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
+            
+            blueProgressBar.progress = progressPercentage
+            
+            
+        }else{
+            // food green
+            greenPlayer.text = String(Int(ceil(turnSeconds)))
+            bluePlayer.text = "Green's Turn"
+            blueProgressBar.progress = 1.0
+            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
+            
+            greenProgressBar.progress = progressPercentage
+        }
+        
         print("timer running \(turnSeconds)")
-        bluePlayer.text = String(turnSeconds)
-        turnSeconds -= 1
+        
+        turnSeconds -= 0.1
         
     }
         
