@@ -19,9 +19,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var block7: UIImageView!
     @IBOutlet weak var block8: UIImageView!
     
+    @IBOutlet weak var bluePlayer: UILabel!
+    
     var listOfBlocks: Array<UIImageView> = []
     
     var whosturn: Bool = false
+    
+    var turnSeconds = 5
+    var timer = Timer()
     
     
     override func viewDidLoad() {
@@ -34,13 +39,15 @@ class ViewController: UIViewController {
 
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
+        timer.invalidate()
+        turnSeconds = 5
         print("ff")
         print(sender.view?.tag ?? 10)
         
         changePhoto(tagNumber: sender.view?.tag ?? 10)
         
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        //position0.image = #imageLiteral(resourceName: "addmealphoto")
     }
     
     func changePhoto (tagNumber: Int){
@@ -60,5 +67,19 @@ class ViewController: UIViewController {
         
         
     }
+    
+    
+    @objc func updateTimer(){
+        if turnSeconds == 0{
+            timer.invalidate()
+            
+        }
+        
+        print("timer running \(turnSeconds)")
+        bluePlayer.text = String(turnSeconds)
+        turnSeconds -= 1
+        
+    }
+        
 }
 

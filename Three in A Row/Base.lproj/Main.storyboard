@@ -127,7 +127,19 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-M3-7HP" userLabel="Bottom View">
                                         <rect key="frame" x="0.0" y="736" width="414" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-nf-5Er">
+                                                <rect key="frame" x="154.5" y="14" width="105.5" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GL3-nf-5Er" firstAttribute="centerY" secondItem="vwh-M3-7HP" secondAttribute="centerY" id="51j-T6-vJF"/>
+                                            <constraint firstItem="GL3-nf-5Er" firstAttribute="centerX" secondItem="vwh-M3-7HP" secondAttribute="centerX" id="BpR-Hp-xf0"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -159,6 +171,7 @@
                         <outlet property="block6" destination="w8c-gw-SsM" id="hbN-Vv-fyY"/>
                         <outlet property="block7" destination="n3b-PX-zaJ" id="Pmh-jz-ajC"/>
                         <outlet property="block8" destination="AIf-3A-YIb" id="Xu1-KV-1Wt"/>
+                        <outlet property="bluePlayer" destination="GL3-nf-5Er" id="xVD-TZ-6s5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
