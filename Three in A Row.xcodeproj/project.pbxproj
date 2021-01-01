@@ -15,6 +15,8 @@
 		B9E43F4E25988555009E04BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E43F4C25988555009E04BC /* LaunchScreen.storyboard */; };
 		B9E43F5925988555009E04BC /* Three_in_A_RowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43F5825988555009E04BC /* Three_in_A_RowTests.swift */; };
 		B9E43F6425988556009E04BC /* Three_in_A_RowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43F6325988556009E04BC /* Three_in_A_RowUITests.swift */; };
+		B9E43F84259CD67D009E04BC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43F83259CD67D009E04BC /* Player.swift */; };
+		B9E43F97259F12C1009E04BC /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43F96259F12C1009E04BC /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B9E43F5F25988555009E04BC /* Three in A RowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Three in A RowUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E43F6325988556009E04BC /* Three_in_A_RowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Three_in_A_RowUITests.swift; sourceTree = "<group>"; };
 		B9E43F6525988556009E04BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E43F83259CD67D009E04BC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		B9E43F96259F12C1009E04BC /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +105,12 @@
 			children = (
 				B9E43F4125988554009E04BC /* AppDelegate.swift */,
 				B9E43F4325988554009E04BC /* SceneDelegate.swift */,
-				B9E43F4525988554009E04BC /* ViewController.swift */,
-				B9E43F4725988554009E04BC /* Main.storyboard */,
+				B9E43F8D259F1233009E04BC /* Controller */,
+				B9E43F8C259F1228009E04BC /* View */,
 				B9E43F4A25988555009E04BC /* Assets.xcassets */,
 				B9E43F4C25988555009E04BC /* LaunchScreen.storyboard */,
 				B9E43F4F25988555009E04BC /* Info.plist */,
+				B9E43F88259F121E009E04BC /* Model */,
 			);
 			path = "Three in A Row";
 			sourceTree = "<group>";
@@ -126,6 +131,31 @@
 				B9E43F6525988556009E04BC /* Info.plist */,
 			);
 			path = "Three in A RowUITests";
+			sourceTree = "<group>";
+		};
+		B9E43F88259F121E009E04BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43F83259CD67D009E04BC /* Player.swift */,
+				B9E43F96259F12C1009E04BC /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9E43F8C259F1228009E04BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43F4725988554009E04BC /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9E43F8D259F1233009E04BC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43F4525988554009E04BC /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E43F97259F12C1009E04BC /* GameModel.swift in Sources */,
+				B9E43F84259CD67D009E04BC /* Player.swift in Sources */,
 				B9E43F4625988554009E04BC /* ViewController.swift in Sources */,
 				B9E43F4225988554009E04BC /* AppDelegate.swift in Sources */,
 				B9E43F4425988554009E04BC /* SceneDelegate.swift in Sources */,

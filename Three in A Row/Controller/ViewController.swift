@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var block0: UIImageView!
@@ -22,7 +23,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var bluePlayer: UILabel!
     @IBOutlet weak var greenPlayer: UILabel!
     @IBOutlet weak var blueProgressBar: UIProgressView!
-    
     @IBOutlet weak var greenProgressBar: UIProgressView!
     
     var listOfBlocks: Array<UIImageView> = []
@@ -34,18 +34,30 @@ class ViewController: UIViewController {
     
     var timer = Timer()
     
+    var g = Player(name: "ccc")
+   var gameModel = GameModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional  setup after loading the view.
         
+        print(g.name)
+        
         greenPlayer.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
+        
+                
     }
 
 
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
+        
+        g.name = "Olala"
+        
+        print(g.name)
+        
         
         timer.invalidate()
         turnSeconds = 5
@@ -84,23 +96,26 @@ class ViewController: UIViewController {
         }
         
         if whosturn {
-            // round blue
-            bluePlayer.text = String(Int(ceil(turnSeconds)))
-            greenPlayer.text = "Blue's Turn"
-            greenProgressBar.progress = 1.0
+            //round blue
+            
+            greenPlayer.text = "\(gameModel.firstPlayer.name)'s Turn"
+            //greenPlayer.text = "Blue's Turn"
+            
+            
+            greenProgressBar.progress = gameModel.fullProgressBar
             let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
-            
             blueProgressBar.progress = progressPercentage
-            
+            bluePlayer.text = String(Int(ceil(turnSeconds)))
             
         }else{
             // food green
-            greenPlayer.text = String(Int(ceil(turnSeconds)))
-            bluePlayer.text = "Green's Turn"
-            blueProgressBar.progress = 1.0
-            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
             
+            bluePlayer.text = "\(gameModel.secondPlayer.name)'s Turn"
+            blueProgressBar.progress = gameModel.fullProgressBar
+            
+            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
             greenProgressBar.progress = progressPercentage
+            greenPlayer.text = String(Int(ceil(turnSeconds)))
         }
         
         print("timer running \(turnSeconds)")
