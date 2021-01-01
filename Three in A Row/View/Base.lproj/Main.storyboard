@@ -29,8 +29,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                                 <color key="progressTintColor" systemColor="systemGreenColor"/>
                                             </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eEQ-Jb-eEH">
-                                                <rect key="frame" x="154.5" y="14" width="105.5" height="54"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eEQ-Jb-eEH">
+                                                <rect key="frame" x="130.5" y="14" width="153.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -48,28 +48,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yW-aZ-RRg" userLabel="Middle View">
                                         <rect key="frame" x="0.0" y="97" width="414" height="624"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-Zu-DyI" userLabel="Table Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-Zu-DyI" userLabel="Table Stack View">
                                                 <rect key="frame" x="27" y="132" width="360" height="360"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-7k-gH8" userLabel="Top Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="120"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-7k-gH8" userLabel="Top Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="116"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round2" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KY-GQ-2WX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KY-GQ-2WX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="9e0-ub-1Oh" appends="YES" id="bUn-wG-xhV"/>
                                                                 </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Sd-MO-H68">
-                                                                <rect key="frame" x="120" y="0.0" width="120" height="120"/>
+                                                                <rect key="frame" x="122" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="qL7-OP-3dJ" appends="YES" id="LVF-CI-YiR"/>
                                                                 </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cGS-A6-SFJ">
-                                                                <rect key="frame" x="240" y="0.0" width="120" height="120"/>
+                                                                <rect key="frame" x="244" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="Y4T-dw-ZZi" appends="YES" id="UUH-Yf-md5"/>
@@ -77,25 +80,28 @@
                                                             </imageView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-Kj-KiI" userLabel="Middle Stack View">
-                                                        <rect key="frame" x="0.0" y="120" width="360" height="120"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-Kj-KiI" userLabel="Middle Stack View">
+                                                        <rect key="frame" x="0.0" y="122" width="360" height="116"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round2" translatesAutoresizingMaskIntoConstraints="NO" id="77b-pV-qxR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="77b-pV-qxR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="044-ec-r7p" appends="YES" id="TUK-hk-Eko"/>
                                                                 </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-Xu-NBn">
-                                                                <rect key="frame" x="120" y="0.0" width="120" height="120"/>
+                                                                <rect key="frame" x="122" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="zgK-cc-pgp" appends="YES" id="DE0-zl-iBL"/>
                                                                 </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="64G-CZ-zo9">
-                                                                <rect key="frame" x="240" y="0.0" width="120" height="120"/>
+                                                                <rect key="frame" x="244" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="HcH-YP-ODX" appends="YES" id="Wy5-OW-WyC"/>
@@ -103,25 +109,28 @@
                                                             </imageView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5sL-2M-n1b" userLabel="Bottom Stack View">
-                                                        <rect key="frame" x="0.0" y="240" width="360" height="120"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5sL-2M-n1b" userLabel="Bottom Stack View">
+                                                        <rect key="frame" x="0.0" y="244" width="360" height="116"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round2" translatesAutoresizingMaskIntoConstraints="NO" id="w8c-gw-SsM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w8c-gw-SsM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="NvO-ms-bYc" appends="YES" id="zAg-OJ-lSb"/>
                                                                 </connections>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3b-PX-zaJ">
-                                                                <rect key="frame" x="120" y="0.0" width="120" height="120"/>
+                                                                <rect key="frame" x="122" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="KnV-Td-G2n" appends="YES" id="ZSg-Q7-dnN"/>
                                                                 </connections>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round2" translatesAutoresizingMaskIntoConstraints="NO" id="AIf-3A-YIb">
-                                                                <rect key="frame" x="240" y="0.0" width="120" height="120"/>
+                                                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AIf-3A-YIb">
+                                                                <rect key="frame" x="244" y="0.0" width="116" height="116"/>
+                                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                 <gestureRecognizers/>
                                                                 <connections>
                                                                     <outletCollection property="gestureRecognizers" destination="oPT-86-fph" appends="YES" id="ZMN-mh-73B"/>
@@ -151,8 +160,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                                 <color key="progressTintColor" systemColor="systemTealColor"/>
                                             </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-nf-5Er">
-                                                <rect key="frame" x="154.5" y="14" width="105.5" height="54"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-nf-5Er">
+                                                <rect key="frame" x="133" y="14" width="148" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -254,7 +263,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="round2" width="200" height="200"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -269,6 +277,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

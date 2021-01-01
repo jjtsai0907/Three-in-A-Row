@@ -26,101 +26,66 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenProgressBar: UIProgressView!
     
     var listOfBlocks: Array<UIImageView> = []
-    
-    var whosturn: Bool = false
-    
-    let totalSeconds: Float = 5
-    var turnSeconds: Float = 5
-    
+    var listOfLabels: Array<UILabel> = []
+    var listOfBars: Array<UIProgressView> = []
+
     var timer = Timer()
-    
-    var g = Player(name: "ccc")
-   var gameModel = GameModel()
+
+    var gameModel = GameModel()
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional  setup after loading the view.
         
-        print(g.name)
+
         
         greenPlayer.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
         
-                
+        listOfLabels = [bluePlayer, greenPlayer]
+        listOfBars = [blueProgressBar, greenProgressBar]
     }
 
 
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
-        g.name = "Olala"
+        gameModel.resetTimer(timer: timer)
+        listOfBlocks[sender.view?.tag ?? 10].image = gameModel.changeSymbol()
+        listOfBlocks[sender.view?.tag ?? 10].isUserInteractionEnabled = false
         
-        print(g.name)
         
+        timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        timer.invalidate()
-        turnSeconds = 5
-        print("ff")
-        print(sender.view?.tag ?? 10)
+        listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
         
-        changePhoto(tagNumber: sender.view?.tag ?? 10)
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
         
     }
     
-    func changePhoto (tagNumber: Int){
-        
-        if whosturn {
-        
-            listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "addmealphoto")
-            listOfBlocks[tagNumber].isUserInteractionEnabled = false
-            whosturn = false
-        }
-        else{
-            listOfBlocks[tagNumber].image = #imageLiteral(resourceName: "round2")
-            listOfBlocks[tagNumber].isUserInteractionEnabled = false
-            whosturn = true
-        }
-        
-        
-        
-    }
     
+    
+    
+    
+
     
     @objc func updateTimer(){
-        if turnSeconds < 0 {
-            timer.invalidate()
-            
-        }
         
-        if whosturn {
-            //round blue
-            
-            greenPlayer.text = "\(gameModel.firstPlayer.name)'s Turn"
-            //greenPlayer.text = "Blue's Turn"
-            
-            
-            greenProgressBar.progress = gameModel.fullProgressBar
-            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
-            blueProgressBar.progress = progressPercentage
-            bluePlayer.text = String(Int(ceil(turnSeconds)))
-            
-        }else{
-            // food green
-            
-            bluePlayer.text = "\(gameModel.secondPlayer.name)'s Turn"
-            blueProgressBar.progress = gameModel.fullProgressBar
-            
-            let progressPercentage = Float(turnSeconds) / Float(totalSeconds)
-            greenProgressBar.progress = progressPercentage
-            greenPlayer.text = String(Int(ceil(turnSeconds)))
-        }
         
-        print("timer running \(turnSeconds)")
         
-        turnSeconds -= 0.1
+        gameModel.updateSecondsLeft(timer: timer)
+        
+        listOfLabels[gameModel.activePlayerIndex()[1]].text =
+            String(Int(ceil(gameModel.secondsLeft)))
+        
+        listOfBars[gameModel.activePlayerIndex()[1]].progress = gameModel.updateProgress()
+            
+        
+        
+        print("timer running \(gameModel.secondsLeft)")
+        
         
     }
         
