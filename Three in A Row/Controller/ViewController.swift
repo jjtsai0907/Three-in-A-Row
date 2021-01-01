@@ -33,7 +33,9 @@ class ViewController: UIViewController {
 
     var gameModel = GameModel()
 
-    
+    //let alert = UIAlertController(title: "Did you bring your towel?", message: "It's recommended you bring your towel before continuing.", preferredStyle: .alert)
+    //alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+    //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,18 +55,51 @@ class ViewController: UIViewController {
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
         gameModel.resetTimer(timer: timer)
-        listOfBlocks[sender.view?.tag ?? 10].image = gameModel.changeSymbol()
+        listOfBlocks[sender.view?.tag ?? 10].image = gameModel.changeSymbol(blockIndex: sender.view?.tag ?? 10)
         listOfBlocks[sender.view?.tag ?? 10].isUserInteractionEnabled = false
         
+        if gameModel.win{
+            print("WINNNNNNNN")
+            showAlert()
+            //self.present(alert, animated: true)
+            
+        }else{
+            timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            
+            
+            listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
+            
+            listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
+        }
         
-        timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
         
-        listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
         
     }
     
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "You win!", message: "restart?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { action in
+            print("clicked cancel")
+            self.gameModel.restartGame()
+            
+            for i in 0...8{
+                self.listOfBlocks[i].image = nil
+                self.listOfBlocks[i].isUserInteractionEnabled = true
+                
+            }
+            self.greenPlayer.text = "Player 2"
+            self.bluePlayer.text = "Player 1"
+            self.blueProgressBar.progress = self.gameModel.updateProgress()
+            self.greenProgressBar.progress = self.gameModel.updateProgress()
+            
+        }))
+        
+        present(alert, animated: true)
+        
+    }
     
     
     
@@ -88,6 +123,8 @@ class ViewController: UIViewController {
         
         
     }
+    
+    
         
 }
 

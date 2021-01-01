@@ -23,6 +23,10 @@ struct GameModel{
     
     let timerInterval = 0.1
     
+    var blocksSymbols: Array<String> = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+    
+    var win: Bool = false
+    
     
     // What happens when block is tapped:
     
@@ -56,17 +60,25 @@ struct GameModel{
     
     
     
-    mutating func changeSymbol () -> UIImage {
+    mutating func changeSymbol (blockIndex: Int) -> UIImage {
+        
+        
         
         if firstPlayerTurn {
             let firstPlayerSymbol = #imageLiteral(resourceName: "round2")
             firstPlayerTurn = false
+            blocksSymbols[blockIndex] = "O"
+            checkIfWins()
             return firstPlayerSymbol
+            
         }else{
             let secondPlayerSymbol = #imageLiteral(resourceName: "addmealphoto")
             firstPlayerTurn = true
+            blocksSymbols[blockIndex] = "X"
+            checkIfWins()
             return secondPlayerSymbol
         }
+        
         
     }
     
@@ -96,7 +108,49 @@ struct GameModel{
     
     
     
-
+    
+    mutating func checkIfWins (){
+        
+        let winningPosibility: Array<Array<String>> = [
+            [blocksSymbols[0], blocksSymbols[1], blocksSymbols[2]],
+            [blocksSymbols[3], blocksSymbols[4], blocksSymbols[5]],
+            [blocksSymbols[6], blocksSymbols[7], blocksSymbols[8]],
+            [blocksSymbols[0], blocksSymbols[3], blocksSymbols[6]],
+            [blocksSymbols[1], blocksSymbols[4], blocksSymbols[7]],
+            [blocksSymbols[2], blocksSymbols[5], blocksSymbols[8]],
+            [blocksSymbols[0], blocksSymbols[4], blocksSymbols[8]],
+            [blocksSymbols[2], blocksSymbols[4], blocksSymbols[6]]]
+        
+        for i in 0...7 {
+            if winningPosibility[i] == ["X", "X", "X"] {
+                print("Winning is XXXXXX ")
+                win=true
+                
+                return
+            }
+            
+            else if winningPosibility[i] == ["O", "O", "O"]{
+                print("Winning is OOOOOOO ")
+                win=true
+                
+                return
+            }
+            else{
+                
+            }
+        }
+        
+        
+    }
+    
+    
+    mutating func restartGame () {
+        firstPlayerTurn = true
+        secondsLeft = secondsTotal
+        blocksSymbols = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+        
+        win = false
+    }
 
 
 
