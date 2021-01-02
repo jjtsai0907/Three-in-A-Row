@@ -27,6 +27,10 @@ struct GameModel{
     
     var win: Bool = false
     
+    var playerScores = [0, 0]
+    //var firstPlayerScore = 0
+    //var secondPlayerScore = 0
+    
     
     // What happens when block is tapped:
     
@@ -35,10 +39,10 @@ struct GameModel{
         
         if firstPlayerTurn {
             // true: player one
-            return "\(secondPlayer.name)'s Turn"
+            return "\(firstPlayer.name)'s Turn"
         }else{
             // false: player two
-            return "\(firstPlayer.name)'s Turn"
+            return "\(secondPlayer.name)'s Turn"
         }
     
         
@@ -48,10 +52,10 @@ struct GameModel{
     func activePlayerIndex () -> Array<Int>{
         
         if firstPlayerTurn {
-            return [0,1]
+            return [1,0]
         }
         else{
-            return [1,0]
+            return [0,1]
         }
     }
     
@@ -125,14 +129,14 @@ struct GameModel{
             if winningPosibility[i] == ["X", "X", "X"] {
                 print("Winning is XXXXXX ")
                 win=true
-                
+                playerScores[1] += 1
                 return
             }
             
             else if winningPosibility[i] == ["O", "O", "O"]{
                 print("Winning is OOOOOOO ")
                 win=true
-                
+                playerScores[0] += 1
                 return
             }
             else{
@@ -151,6 +155,8 @@ struct GameModel{
         
         win = false
     }
+    
+    
 
 
 

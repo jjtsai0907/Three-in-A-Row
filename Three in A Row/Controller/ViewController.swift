@@ -25,17 +25,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var blueProgressBar: UIProgressView!
     @IBOutlet weak var greenProgressBar: UIProgressView!
     
+    @IBOutlet weak var firstPlayerScore: UILabel!
+    @IBOutlet weak var secondPlayerScore: UILabel!
+    
+    
     var listOfBlocks: Array<UIImageView> = []
     var listOfLabels: Array<UILabel> = []
     var listOfBars: Array<UIProgressView> = []
+    var listOfScoreLabels: Array<UILabel> = []
 
     var timer = Timer()
 
     var gameModel = GameModel()
 
-    //let alert = UIAlertController(title: "Did you bring your towel?", message: "It's recommended you bring your towel before continuing.", preferredStyle: .alert)
-    //alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-    //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+    
+    /////////////  Active Player's index ==  gameModel.activePlayerIndex()[1]
+    ////////////  Inactive Player's index ==  gameModel.activePlayerIndex()[0]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +51,14 @@ class ViewController: UIViewController {
 
         
         greenPlayer.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        secondPlayerScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
         
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
         
         listOfLabels = [bluePlayer, greenPlayer]
         listOfBars = [blueProgressBar, greenProgressBar]
+        listOfScoreLabels = [firstPlayerScore, secondPlayerScore]
     }
 
 
@@ -58,17 +68,17 @@ class ViewController: UIViewController {
         listOfBlocks[sender.view?.tag ?? 10].image = gameModel.changeSymbol(blockIndex: sender.view?.tag ?? 10)
         listOfBlocks[sender.view?.tag ?? 10].isUserInteractionEnabled = false
         
+        
         if gameModel.win{
             print("WINNNNNNNN")
             showAlert()
-            //self.present(alert, animated: true)
             
         }else{
             timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             
             
+            // what to do with the inactive player's UI
             listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
-            
             listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
         }
         
@@ -83,6 +93,10 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { action in
             print("clicked cancel")
+            
+            // update winner's score
+            self.listOfScoreLabels[self.gameModel.activePlayerIndex()[0]].text = "Scores: \(self.gameModel.playerScores[self.gameModel.activePlayerIndex()[0]])"
+            
             self.gameModel.restartGame()
             
             for i in 0...8{
