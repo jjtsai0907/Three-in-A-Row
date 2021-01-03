@@ -230,6 +230,7 @@
                         <outlet property="greenPlayer" destination="eEQ-Jb-eEH" id="kFs-BF-oAy"/>
                         <outlet property="greenProgressBar" destination="baq-cp-Bv4" id="PMt-L1-Hri"/>
                         <outlet property="secondPlayerScore" destination="Xac-fE-gOw" id="mbV-82-JNl"/>
+                        <outlet property="tableStack" destination="0wr-Zu-DyI" id="Pw2-H4-7Wa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

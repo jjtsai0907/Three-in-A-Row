@@ -35,15 +35,17 @@ class GameViewController: UIViewController {
     var listOfScoreLabels: Array<UILabel> = []
 
     var timer = Timer()
+    var aiTimer = Timer()
 
     
-
+    @IBOutlet weak var tableStack: UIStackView!
+    
     var playerOneName: String?
     var playerTwoName: String?
     
     var gameModel = GameModel()
     
-    
+    var gameVCPlayAgainstAI: Bool = false
     /////////////  Active Player's index ==  gameModel.activePlayerIndex()[1]
     ////////////  Inactive Player's index ==  gameModel.activePlayerIndex()[0]
     
@@ -66,6 +68,9 @@ class GameViewController: UIViewController {
         
         //gameModel.firstPlayer = playerOneName
         print("playerOneName: \(playerOneName)")
+        print("against AI: \(gameVCPlayAgainstAI)")
+        
+        gameModel.ifAgainstAI = gameVCPlayAgainstAI
         
         gameModel.firstPlayer = Player(name: playerOneName!)
         gameModel.secondPlayer = Player(name: playerTwoName!)
@@ -75,22 +80,20 @@ class GameViewController: UIViewController {
 
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
-        gameModel.resetTimer(timer: timer)
-        listOfBlocks[sender.view?.tag ?? 10].image = gameModel.changeSymbol(blockIndex: sender.view?.tag ?? 10)
-        listOfBlocks[sender.view?.tag ?? 10].isUserInteractionEnabled = false
+        updateSymbol(blockIndex: sender.view?.tag ?? 10)
         
-        
-        if gameModel.win{
-            print("WINNNNNNNN")
-            showAlert()
+        if gameVCPlayAgainstAI {
             
-        }else{
-            timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            tableStack.isUserInteractionEnabled = false
+            
+            aiTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false, block: { [self] (Timer) in
+                updateSymbol(blockIndex: gameModel.randomBlock())
+                tableStack.isUserInteractionEnabled = true
+            })
             
             
-            // what to do with the inactive player's UI
-            listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
-            listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
+            //updateSymbol(blockIndex: gameModel.randomBlock())
+    
         }
         
         
@@ -144,9 +147,32 @@ class GameViewController: UIViewController {
             
         
         
-        print("timer running \(gameModel.secondsLeft)")
+        //print("timer running \(gameModel.secondsLeft)")
         
         
+        
+    }
+    
+    func updateSymbol (blockIndex: Int) {
+        gameModel.resetTimer(timer: timer)
+        listOfBlocks[blockIndex].image = gameModel.changeSymbol(blockIndex: blockIndex)
+        listOfBlocks[blockIndex].isUserInteractionEnabled = false
+        
+        
+        if gameModel.win{
+            print("WINNNNNNNN")
+            showAlert()
+            
+        }else{
+            timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            
+            
+            // what to do with the inactive player's UI
+            listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
+            listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
+        }
+
+    
     }
     
     

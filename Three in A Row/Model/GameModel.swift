@@ -10,6 +10,8 @@ import UIKit
 
 struct GameModel{
     
+    var ifAgainstAI: Bool = false
+    
     var firstPlayerTurn: Bool = true
     
     
@@ -25,9 +27,11 @@ struct GameModel{
     
     let timerInterval = 0.1
     
-    var blocksSymbols: Array<String> = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+    var blocksSymbols: Array<String> = ["a", "a", "a", "a", "a", "a", "a", "a", "a"]
     
     var win: Bool = false
+    
+    var randNr:Int = 0
     
     var playerScores = [0, 0]
     //var firstPlayerScore = 0
@@ -38,6 +42,7 @@ struct GameModel{
     
     // To show who is the currenct player
     mutating func activePlayer () -> String {
+        
         
         if firstPlayerTurn {
             // true: player one
@@ -53,6 +58,7 @@ struct GameModel{
     
     
     
+
     
     
     func activePlayerIndex () -> Array<Int>{
@@ -79,9 +85,11 @@ struct GameModel{
             firstPlayerTurn = false
             blocksSymbols[blockIndex] = "O"
             checkIfWins()
+            
             return firstPlayerSymbol
             
         }else{
+            
             let secondPlayerSymbol = #imageLiteral(resourceName: "addmealphoto")
             firstPlayerTurn = true
             blocksSymbols[blockIndex] = "X"
@@ -95,6 +103,8 @@ struct GameModel{
     mutating func resetTimer (timer: Timer){
         timer.invalidate()
         secondsLeft = secondsTotal
+        
+        
     }
     
     
@@ -157,13 +167,44 @@ struct GameModel{
     mutating func restartGame () {
         firstPlayerTurn = true
         secondsLeft = secondsTotal
-        blocksSymbols = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+        blocksSymbols = ["a", "a", "a", "a", "a", "a", "a", "a", "a"]
         
         win = false
     }
     
+    mutating func randomBlock() -> Int {
+        
+        randNr = Int.random(in: 0...8)
+        
+        while blocksSymbols[randNr] != "a" {
+            randNr = Int.random(in: 0...8)
+        }
+        
+        print(blocksSymbols[randNr])
+        return randNr
+        
+    }
     
-
+    // if play agaisnt AI
+    
+    /*func playAgainstAI () {
+        
+        
+        
+    }
+    
+    
+    mutating func ifPlayAsAI ()  -> Bool {
+        
+        if  ifAgainstAI {
+            return true
+        }
+        else{
+            return false
+        }
+        
+        
+    }*/
 
 
 }

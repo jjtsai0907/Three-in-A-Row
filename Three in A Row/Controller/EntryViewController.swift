@@ -19,6 +19,8 @@ class EntryViewController: UIViewController{
     
     @IBOutlet weak var startGameButton: UIButton!
     
+    var entryVCPlayAgainstAI : Bool = false
+    
     //let gameModel2 = GameModel()
     
     override func viewDidLoad() {
@@ -58,9 +60,9 @@ class EntryViewController: UIViewController{
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
         
+        entryVCPlayAgainstAI = true
         
-        
-        
+        playerTwoInput.text = "AI Butt"
         
     }
     
@@ -75,6 +77,8 @@ class EntryViewController: UIViewController{
         backToMenuButton.alpha = 0.0
         startGameButton.alpha = 0.0
         
+        playerTwoInput.text = ""
+        
     }
     
     
@@ -84,6 +88,7 @@ class EntryViewController: UIViewController{
             let destinationVC = segue.destination as! GameViewController
             destinationVC.playerOneName = playerOneInput.text
             destinationVC.playerTwoName = playerTwoInput.text
+            destinationVC.gameVCPlayAgainstAI = entryVCPlayAgainstAI
             
         }
         
