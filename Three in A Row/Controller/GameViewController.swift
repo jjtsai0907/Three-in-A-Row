@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     var listOfScoreLabels: Array<UILabel> = []
 
     var timer = Timer()
-    var aiTimer = Timer()
+    var aiTimer : Timer?
 
     
     @IBOutlet weak var tableStack: UIStackView!
@@ -80,16 +80,24 @@ class GameViewController: UIViewController {
 
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
+        
         updateSymbol(blockIndex: sender.view?.tag ?? 10)
         
         if gameVCPlayAgainstAI {
             
             tableStack.isUserInteractionEnabled = false
             
-            aiTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false, block: { [self] (Timer) in
-                updateSymbol(blockIndex: gameModel.randomBlock())
-                tableStack.isUserInteractionEnabled = true
-            })
+            if gameModel.win {
+                
+            }else{
+                
+                aiTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { [self] (Timer) in
+                    updateSymbol(blockIndex: gameModel.randomBlock())
+                    tableStack.isUserInteractionEnabled = true
+                })
+                
+                
+            }
             
             
             //updateSymbol(blockIndex: gameModel.randomBlock())
@@ -112,6 +120,7 @@ class GameViewController: UIViewController {
             self.listOfScoreLabels[self.gameModel.activePlayerIndex()[0]].text = "Scores: \(self.gameModel.playerScores[self.gameModel.activePlayerIndex()[0]])"
             
             self.gameModel.restartGame()
+            self.tableStack.isUserInteractionEnabled = true
             
             for i in 0...8{
                 self.listOfBlocks[i].image = nil
@@ -160,6 +169,12 @@ class GameViewController: UIViewController {
         
         
         if gameModel.win{
+            print(" aiTimer before invalidate: \(String(describing: aiTimer))")
+            aiTimer?.invalidate()
+            aiTimer = nil
+            print(" aiTimer after invalidate: \(String(describing: aiTimer))")
+
+            
             print("WINNNNNNNN")
             showAlert()
             
