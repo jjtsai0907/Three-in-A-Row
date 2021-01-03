@@ -76,7 +76,7 @@ class EntryViewController: UIViewController{
         playerTwoInput.alpha = 0.0
         backToMenuButton.alpha = 0.0
         startGameButton.alpha = 0.0
-        
+        entryVCPlayAgainstAI = false
         playerTwoInput.text = ""
         
     }

@@ -10,6 +10,8 @@ import UIKit
 
 struct GameModel{
     
+    var countTimes: Int = 0
+    
     var ifAgainstAI: Bool = false
     
     var firstPlayerTurn: Bool = true
@@ -30,12 +32,14 @@ struct GameModel{
     var blocksSymbols: Array<String> = ["a", "a", "a", "a", "a", "a", "a", "a", "a"]
     
     var win: Bool = false
+    var even: Bool = false
     
-    var randNr:Int = 0
+    var randNr: Int = 0
     
     var playerScores = [0, 0]
-    //var firstPlayerScore = 0
-    //var secondPlayerScore = 0
+
+    var alertTitle: String?
+    
     
     
     // What happens when block is tapped:
@@ -78,7 +82,8 @@ struct GameModel{
     
     mutating func changeSymbol (blockIndex: Int) -> UIImage {
         
-        
+        countTimes += 1
+        checkIfEven()
         
         if firstPlayerTurn {
             let firstPlayerSymbol = #imageLiteral(resourceName: "round2")
@@ -146,6 +151,7 @@ struct GameModel{
                 print("Winning is XXXXXX ")
                 win=true
                 playerScores[1] += 1
+                alertTitle = "\(secondPlayer.name) Wins"
                 return
             }
             
@@ -153,6 +159,7 @@ struct GameModel{
                 print("Winning is OOOOOOO ")
                 win=true
                 playerScores[0] += 1
+                alertTitle = "\(firstPlayer.name) Wins"
                 return
             }
             else{
@@ -168,8 +175,9 @@ struct GameModel{
         firstPlayerTurn = true
         secondsLeft = secondsTotal
         blocksSymbols = ["a", "a", "a", "a", "a", "a", "a", "a", "a"]
-        
+        countTimes = 0
         win = false
+        even = false
     }
     
     mutating func randomBlock() -> Int {
@@ -185,26 +193,15 @@ struct GameModel{
         
     }
     
-    // if play agaisnt AI
-    
-    /*func playAgainstAI () {
+    mutating func checkIfEven () {
         
-        
+        if win == false && countTimes == 9 {
+            print("even!!! ")
+            alertTitle = "No One Wins"
+            even = true
+        }
         
     }
-    
-    
-    mutating func ifPlayAsAI ()  -> Bool {
-        
-        if  ifAgainstAI {
-            return true
-        }
-        else{
-            return false
-        }
-        
-        
-    }*/
 
 
 }

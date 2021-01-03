@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     var listOfScoreLabels: Array<UILabel> = []
 
     var timer = Timer()
-    var aiTimer : Timer?
+    var aiTimer = Timer()
 
     
     @IBOutlet weak var tableStack: UIStackView!
@@ -81,24 +81,26 @@ class GameViewController: UIViewController {
     @IBAction func blockTapped(_ sender: UITapGestureRecognizer) {
         
         
+        print(gameModel.countTimes)
+        
         updateSymbol(blockIndex: sender.view?.tag ?? 10)
+        
+        
         
         if gameVCPlayAgainstAI {
             
             tableStack.isUserInteractionEnabled = false
             
-            if gameModel.win {
-                
+            if gameModel.win || gameModel.even {
+            //Do nothing
             }else{
-                
                 aiTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { [self] (Timer) in
                     updateSymbol(blockIndex: gameModel.randomBlock())
                     tableStack.isUserInteractionEnabled = true
-                })
-                
-                
+                    })
             }
-            
+                
+
             
             //updateSymbol(blockIndex: gameModel.randomBlock())
     
@@ -111,7 +113,7 @@ class GameViewController: UIViewController {
     
     
     func showAlert() {
-        let alert = UIAlertController(title: "You win!", message: "restart?", preferredStyle: .alert)
+        let alert = UIAlertController(title: gameModel.alertTitle, message: "restart?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { action in
             print("clicked cancel")
@@ -168,14 +170,13 @@ class GameViewController: UIViewController {
         listOfBlocks[blockIndex].isUserInteractionEnabled = false
         
         
-        if gameModel.win{
-            print(" aiTimer before invalidate: \(String(describing: aiTimer))")
-            aiTimer?.invalidate()
-            aiTimer = nil
-            print(" aiTimer after invalidate: \(String(describing: aiTimer))")
+        if gameModel.win || gameModel.even {
+            
+            aiTimer.invalidate()
+            
 
             
-            print("WINNNNNNNN")
+            print("WINNNNNNNN or Even")
             showAlert()
             
         }else{
