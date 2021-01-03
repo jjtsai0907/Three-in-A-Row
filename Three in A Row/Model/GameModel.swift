@@ -12,8 +12,10 @@ struct GameModel{
     
     var firstPlayerTurn: Bool = true
     
-    var firstPlayer = Player(name: "JJJJ")
-    var secondPlayer = Player(name: "OOOO")
+    
+    var firstPlayer = Player(name : "")
+    var secondPlayer = Player(name : "AI")
+    
     
     let fullProgressBar = Float(1.0)
 
@@ -48,6 +50,10 @@ struct GameModel{
         
         
     }
+    
+    
+    
+    
     
     func activePlayerIndex () -> Array<Int>{
         

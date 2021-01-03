@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     @IBOutlet weak var block0: UIImageView!
     @IBOutlet weak var block1: UIImageView!
@@ -36,9 +36,13 @@ class ViewController: UIViewController {
 
     var timer = Timer()
 
+    
+
+    var playerOneName: String?
+    var playerTwoName: String?
+    
     var gameModel = GameModel()
-
-
+    
     
     /////////////  Active Player's index ==  gameModel.activePlayerIndex()[1]
     ////////////  Inactive Player's index ==  gameModel.activePlayerIndex()[0]
@@ -59,6 +63,13 @@ class ViewController: UIViewController {
         listOfLabels = [bluePlayer, greenPlayer]
         listOfBars = [blueProgressBar, greenProgressBar]
         listOfScoreLabels = [firstPlayerScore, secondPlayerScore]
+        
+        //gameModel.firstPlayer = playerOneName
+        print("playerOneName: \(playerOneName)")
+        
+        gameModel.firstPlayer = Player(name: playerOneName!)
+        gameModel.secondPlayer = Player(name: playerTwoName!)
+        
     }
 
 
