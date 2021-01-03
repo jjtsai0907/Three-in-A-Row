@@ -67,13 +67,16 @@ class GameViewController: UIViewController {
         listOfScoreLabels = [firstPlayerScore, secondPlayerScore]
         
         //gameModel.firstPlayer = playerOneName
-        print("playerOneName: \(playerOneName)")
+        print("playerOneName: \(playerOneName!)")
         print("against AI: \(gameVCPlayAgainstAI)")
         
         gameModel.ifAgainstAI = gameVCPlayAgainstAI
         
         gameModel.firstPlayer = Player(name: playerOneName!)
         gameModel.secondPlayer = Player(name: playerTwoName!)
+        
+        greenPlayer.text = playerTwoName
+        bluePlayer.text = "\(playerOneName!) Starts"
         
     }
 
@@ -129,8 +132,8 @@ class GameViewController: UIViewController {
                 self.listOfBlocks[i].isUserInteractionEnabled = true
                 
             }
-            self.greenPlayer.text = "Player 2"
-            self.bluePlayer.text = "Player 1"
+            self.greenPlayer.text = self.playerTwoName
+            self.bluePlayer.text = "\(self.playerOneName!) Starts"
             self.blueProgressBar.progress = self.gameModel.updateProgress()
             self.greenProgressBar.progress = self.gameModel.updateProgress()
             
@@ -168,6 +171,8 @@ class GameViewController: UIViewController {
         gameModel.resetTimer(timer: timer)
         listOfBlocks[blockIndex].image = gameModel.changeSymbol(blockIndex: blockIndex)
         listOfBlocks[blockIndex].isUserInteractionEnabled = false
+        
+        self.listOfScoreLabels[self.gameModel.activePlayerIndex()[0]].text = "Scores: \(self.gameModel.playerScores[self.gameModel.activePlayerIndex()[0]])"
         
         
         if gameModel.win || gameModel.even {

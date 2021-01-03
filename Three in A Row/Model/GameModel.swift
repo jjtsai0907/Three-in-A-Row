@@ -118,6 +118,13 @@ struct GameModel{
         
         if secondsLeft < 0 {
             timer.invalidate()
+            if firstPlayerTurn {
+                playerScores[0] -= 1
+                
+            }else{
+                playerScores[1] -= 1
+                
+            }
         }
         else{
             secondsLeft -= timerInterval
