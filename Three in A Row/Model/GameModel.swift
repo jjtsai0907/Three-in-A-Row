@@ -86,7 +86,7 @@ struct GameModel{
         checkIfEven()
         
         if firstPlayerTurn {
-            let firstPlayerSymbol = #imageLiteral(resourceName: "round2")
+            let firstPlayerSymbol = #imageLiteral(resourceName: "thunder_sym")
             firstPlayerTurn = false
             blocksSymbols[blockIndex] = "O"
             checkIfWins()
