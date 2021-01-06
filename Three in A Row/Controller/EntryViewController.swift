@@ -19,6 +19,8 @@ class EntryViewController: UIViewController{
     
     @IBOutlet weak var startGameButton: UIButton!
     
+    @IBOutlet weak var player2Image: UIImageView!
+    
     var entryVCPlayAgainstAI : Bool = false
     
     //let gameModel2 = GameModel()
@@ -41,6 +43,7 @@ class EntryViewController: UIViewController{
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
         print("fff")
+        player2Image.image = #imageLiteral(resourceName: "water_character")
         
         //self.performSegue(withIdentifier: "goToGame", sender: self)
     }
@@ -59,10 +62,10 @@ class EntryViewController: UIViewController{
         playerOneInput.alpha = 1.0
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
-        
+        player2Image.image = #imageLiteral(resourceName: "robot")
         entryVCPlayAgainstAI = true
         
-        playerTwoInput.text = "AI Butt"
+        playerTwoInput.text = "AI"
         
     }
     
@@ -78,6 +81,8 @@ class EntryViewController: UIViewController{
         startGameButton.alpha = 0.0
         entryVCPlayAgainstAI = false
         playerTwoInput.text = ""
+        
+        player2Image.image = #imageLiteral(resourceName: "entry_shadow")
         
     }
     

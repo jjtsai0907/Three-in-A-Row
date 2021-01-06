@@ -94,12 +94,22 @@ struct GameModel{
             return firstPlayerSymbol
             
         }else{
+            if ifAgainstAI {
+                let secondPlayerSymbol = #imageLiteral(resourceName: "monkey_wrench")
+                firstPlayerTurn = true
+                blocksSymbols[blockIndex] = "X"
+                checkIfWins()
+                return secondPlayerSymbol
+                
+            }else{
+                let secondPlayerSymbol = #imageLiteral(resourceName: "tenki_mark03_gouu")
+                firstPlayerTurn = true
+                blocksSymbols[blockIndex] = "X"
+                checkIfWins()
+                return secondPlayerSymbol
+                
+            }
             
-            let secondPlayerSymbol = #imageLiteral(resourceName: "addmealphoto")
-            firstPlayerTurn = true
-            blocksSymbols[blockIndex] = "X"
-            checkIfWins()
-            return secondPlayerSymbol
         }
         
         

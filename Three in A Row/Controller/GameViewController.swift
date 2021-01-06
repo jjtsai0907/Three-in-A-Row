@@ -20,13 +20,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var block7: UIImageView!
     @IBOutlet weak var block8: UIImageView!
     
-    @IBOutlet weak var bluePlayer: UILabel!
-    @IBOutlet weak var greenPlayer: UILabel!
-    @IBOutlet weak var blueProgressBar: UIProgressView!
-    @IBOutlet weak var greenProgressBar: UIProgressView!
+    @IBOutlet weak var playerOne: UILabel!
+    @IBOutlet weak var playerTwo: UILabel!
+    @IBOutlet weak var playerOneProgressBar: UIProgressView!
+    @IBOutlet weak var playerTwoProgressBar: UIProgressView!
     
-    @IBOutlet weak var firstPlayerScore: UILabel!
-    @IBOutlet weak var secondPlayerScore: UILabel!
+    @IBOutlet weak var playerOneScore: UILabel!
+    @IBOutlet weak var playerTwoScore: UILabel!
     
     
     var listOfBlocks: Array<UIImageView> = []
@@ -56,15 +56,15 @@ class GameViewController: UIViewController {
         
 
         
-        greenPlayer.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        secondPlayerScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        playerTwo.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        playerTwoScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
         
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
         
-        listOfLabels = [bluePlayer, greenPlayer]
-        listOfBars = [blueProgressBar, greenProgressBar]
-        listOfScoreLabels = [firstPlayerScore, secondPlayerScore]
+        listOfLabels = [playerOne, playerTwo]
+        listOfBars = [playerOneProgressBar, playerTwoProgressBar]
+        listOfScoreLabels = [playerOneScore, playerTwoScore]
         
         //gameModel.firstPlayer = playerOneName
         print("playerOneName: \(playerOneName!)")
@@ -75,8 +75,8 @@ class GameViewController: UIViewController {
         gameModel.firstPlayer = Player(name: playerOneName!)
         gameModel.secondPlayer = Player(name: playerTwoName!)
         
-        greenPlayer.text = playerTwoName
-        bluePlayer.text = "\(playerOneName!) Starts"
+        playerTwo.text = playerTwoName
+        playerOne.text = "\(playerOneName!) Starts"
         
     }
 
@@ -132,10 +132,10 @@ class GameViewController: UIViewController {
                 self.listOfBlocks[i].isUserInteractionEnabled = true
                 
             }
-            self.greenPlayer.text = self.playerTwoName
-            self.bluePlayer.text = "\(self.playerOneName!) Starts"
-            self.blueProgressBar.progress = self.gameModel.updateProgress()
-            self.greenProgressBar.progress = self.gameModel.updateProgress()
+            self.playerTwo.text = self.playerTwoName
+            self.playerOne.text = "\(self.playerOneName!) Starts"
+            self.playerOneProgressBar.progress = self.gameModel.updateProgress()
+            self.playerTwoProgressBar.progress = self.gameModel.updateProgress()
             
         }))
         
