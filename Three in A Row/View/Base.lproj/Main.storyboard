@@ -11,26 +11,26 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Three_in_A_Row" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="GameViewController" customModule="Three_in_A_Row" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="hell_background" translatesAutoresizingMaskIntoConstraints="NO" id="jgR-Fp-pZj" userLabel="Background Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="hell_background" translatesAutoresizingMaskIntoConstraints="NO" id="jgR-Fp-pZj" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="myN-3a-kxH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="myN-3a-kxH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-cM-Chz" userLabel="Top View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="baq-cp-Bv4" userLabel="Player2 Progress Bar">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                                 <color key="progressTintColor" systemColor="systemTealColor"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEQ-Jb-eEH">
-                                                <rect key="frame" x="130.5" y="13.5" width="153.5" height="54"/>
+                                                <rect key="frame" x="130.5" y="14" width="153.5" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -46,10 +46,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yW-aZ-RRg" userLabel="Middle View">
-                                        <rect key="frame" x="0.0" y="96" width="414" height="616"/>
+                                        <rect key="frame" x="0.0" y="82" width="414" height="654"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tablebg" translatesAutoresizingMaskIntoConstraints="NO" id="GdI-oV-k1h">
-                                                <rect key="frame" x="20" y="121" width="374" height="374"/>
+                                                <rect key="frame" x="20" y="140" width="374" height="374"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="GdI-oV-k1h" secondAttribute="height" multiplier="1:1" id="LcK-3h-heG"/>
                                                     <constraint firstAttribute="height" constant="374" id="hqL-d6-oE1"/>
@@ -57,7 +57,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-Zu-DyI" userLabel="Table Stack View">
-                                                <rect key="frame" x="27" y="128" width="360" height="360"/>
+                                                <rect key="frame" x="27" y="147" width="360" height="360"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-7k-gH8" userLabel="Top Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="360" height="108.5"/>
@@ -162,7 +162,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHa-Vu-kof">
-                                                <rect key="frame" x="27" y="560" width="107" height="36"/>
+                                                <rect key="frame" x="27" y="598" width="107" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -190,14 +190,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-M3-7HP" userLabel="Bottom View">
-                                        <rect key="frame" x="0.0" y="727" width="414" height="81"/>
+                                        <rect key="frame" x="0.0" y="736" width="414" height="82"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rlg-Uv-68e" userLabel="Player1 Progress Bar">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                                 <color key="progressTintColor" systemColor="systemYellowColor"/>
                                             </progressView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-nf-5Er">
-                                                <rect key="frame" x="133" y="13.5" width="148" height="54"/>
+                                                <rect key="frame" x="133" y="14" width="148" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -219,17 +219,17 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="wsm-Sv-ZTl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="myN-3a-kxH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="60u-Fy-MJH"/>
                             <constraint firstAttribute="trailing" secondItem="jgR-Fp-pZj" secondAttribute="trailing" id="Bd7-5R-B6l"/>
-                            <constraint firstItem="myN-3a-kxH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CDE-eo-DbR"/>
+                            <constraint firstItem="myN-3a-kxH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CDE-eo-DbR"/>
                             <constraint firstItem="jgR-Fp-pZj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gj4-NL-8Hx"/>
+                            <constraint firstItem="wsm-Sv-ZTl" firstAttribute="bottom" secondItem="myN-3a-kxH" secondAttribute="bottom" id="Ker-DM-xTe"/>
                             <constraint firstAttribute="bottom" secondItem="jgR-Fp-pZj" secondAttribute="bottom" id="OJ3-yi-pMc"/>
-                            <constraint firstItem="myN-3a-kxH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OnX-kI-Tee"/>
+                            <constraint firstItem="myN-3a-kxH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="OnX-kI-Tee"/>
+                            <constraint firstItem="myN-3a-kxH" firstAttribute="top" secondItem="wsm-Sv-ZTl" secondAttribute="top" id="jDx-16-VXe"/>
                             <constraint firstItem="jgR-Fp-pZj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rXf-lL-RQl"/>
-                            <constraint firstItem="myN-3a-kxH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zWT-rq-gI3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -249,6 +249,7 @@
                         <outlet property="playerTwoProgressBar" destination="baq-cp-Bv4" id="PMt-L1-Hri"/>
                         <outlet property="playerTwoScore" destination="Xac-fE-gOw" id="mbV-82-JNl"/>
                         <outlet property="tableStack" destination="0wr-Zu-DyI" id="Pw2-H4-7Wa"/>
+                        <segue destination="SYc-is-d5h" kind="presentation" identifier="goBackToMenu" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="oH1-SA-UCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -298,7 +299,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="140.18691588785046" y="58.315334773218147"/>
+            <point key="canvasLocation" x="733" y="108"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="IN8-7v-vcb">
@@ -472,6 +473,7 @@
                             <constraint firstItem="fxt-fU-iUQ" firstAttribute="top" secondItem="hvd-wr-rnM" secondAttribute="top" id="sp9-cO-dac"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nTp-4G-UJ7"/>
                     <connections>
                         <outlet property="againstAIButton" destination="pdh-4o-zDu" id="HKi-CJ-VTD"/>
                         <outlet property="backToMenuButton" destination="xCr-yh-JPR" id="bTb-9T-ieb"/>
@@ -480,7 +482,7 @@
                         <outlet property="playerTwoInput" destination="2je-g6-FAH" id="bf4-Up-Hdj"/>
                         <outlet property="startGameButton" destination="Qfa-tD-NvO" id="8i9-hu-Wzh"/>
                         <outlet property="twoPlayerButton" destination="7fl-n7-bzZ" id="GXs-Xh-gki"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToGame" id="6w5-FA-Mh3"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="6w5-FA-Mh3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSy-M4-m2C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

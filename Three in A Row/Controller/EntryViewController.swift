@@ -10,20 +10,15 @@ import UIKit
 class EntryViewController: UIViewController{
     @IBOutlet weak var twoPlayerButton: UIButton!
     @IBOutlet weak var againstAIButton: UIButton!
-    
     @IBOutlet weak var playerOneInput: UITextField!
-    
     @IBOutlet weak var playerTwoInput: UITextField!
-    
     @IBOutlet weak var backToMenuButton: UIButton!
-    
     @IBOutlet weak var startGameButton: UIButton!
-    
     @IBOutlet weak var player2Image: UIImageView!
     
     var entryVCPlayAgainstAI : Bool = false
     
-    //let gameModel2 = GameModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +37,12 @@ class EntryViewController: UIViewController{
         playerTwoInput.alpha = 1.0
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
-        print("fff")
         player2Image.image = #imageLiteral(resourceName: "water_character")
-        
-        //self.performSegue(withIdentifier: "goToGame", sender: self)
+
     }
     
     @IBAction func startGamePressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToGame", sender: self)
-            
-        //playerOneInput.text
             
     }
     
@@ -64,8 +55,7 @@ class EntryViewController: UIViewController{
         startGameButton.alpha = 1.0
         player2Image.image = #imageLiteral(resourceName: "robot")
         entryVCPlayAgainstAI = true
-        
-        playerTwoInput.text = "AI"
+        playerTwoInput.text = "Sexy AI"
         
     }
     
@@ -73,16 +63,7 @@ class EntryViewController: UIViewController{
     
     
     @IBAction func backToMenuPressed(_ sender: UIButton) {
-        twoPlayerButton.alpha = 1.0
-        againstAIButton.alpha = 1.0
-        playerOneInput.alpha = 0.0
-        playerTwoInput.alpha = 0.0
-        backToMenuButton.alpha = 0.0
-        startGameButton.alpha = 0.0
-        entryVCPlayAgainstAI = false
-        playerTwoInput.text = ""
-        
-        player2Image.image = #imageLiteral(resourceName: "entry_shadow")
+        resetLayout ()
         
     }
     
@@ -98,6 +79,18 @@ class EntryViewController: UIViewController{
         }
         
         
+    }
+    
+    func resetLayout () {
+        twoPlayerButton.alpha = 1.0
+        againstAIButton.alpha = 1.0
+        playerOneInput.alpha = 0.0
+        playerTwoInput.alpha = 0.0
+        backToMenuButton.alpha = 0.0
+        startGameButton.alpha = 0.0
+        entryVCPlayAgainstAI = false
+        playerTwoInput.text = ""
+        player2Image.image = #imageLiteral(resourceName: "entry_shadow")
     }
     
     

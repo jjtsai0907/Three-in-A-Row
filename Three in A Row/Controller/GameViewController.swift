@@ -55,13 +55,14 @@ class GameViewController: UIViewController {
         // Do any additional  setup after loading the view.
         
 
-        
+        // So that Player Two's Texts are upsidedown.
         playerTwo.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         playerTwoScore.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-        
+        // To keep track of the table of blocks
         listOfBlocks = [block0, block1, block2, block3, block4, block5, block6, block7, block8]
         
+        // A way to rotate the turns
         listOfLabels = [playerOne, playerTwo]
         listOfBars = [playerOneProgressBar, playerTwoProgressBar]
         listOfScoreLabels = [playerOneScore, playerTwoScore]
@@ -116,10 +117,19 @@ class GameViewController: UIViewController {
     
     
     func showAlert() {
-        let alert = UIAlertController(title: gameModel.alertTitle, message: "restart?", preferredStyle: .alert)
+        let alert = UIAlertController(title: gameModel.alertTitle, message: "Come on, let's do this again!!", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Exit", style: .default, handler: { [self] _ in
+            print("Exit")
+            self.gameModel.restartGame()
+            self.tableStack.isUserInteractionEnabled = true
+            self.gameModel.resetTimer (timer: self.timer)
+            self.gameModel.resetTimer (timer: self.aiTimer)
+            self.performSegue(withIdentifier: "goBackToMenu", sender: self)
+        }))
         
         alert.addAction(UIAlertAction(title: "Play Again", style: .default, handler: { action in
-            print("clicked cancel")
+            print("clicked")
             
             // update winner's score
             self.listOfScoreLabels[self.gameModel.activePlayerIndex()[0]].text = "Scores: \(self.gameModel.playerScores[self.gameModel.activePlayerIndex()[0]])"
@@ -151,7 +161,6 @@ class GameViewController: UIViewController {
     @objc func updateTimer(){
         
         
-        
         gameModel.updateSecondsLeft(timer: timer)
         
         listOfLabels[gameModel.activePlayerIndex()[1]].text =
@@ -159,15 +168,17 @@ class GameViewController: UIViewController {
         
         listOfBars[gameModel.activePlayerIndex()[1]].progress = gameModel.updateProgress()
             
-        
-        
-        //print("timer running \(gameModel.secondsLeft)")
+        print("timer running \(gameModel.secondsLeft)")
         
         
         
     }
     
+    
+    
+    // While updating a symbol, it also checks if someone wins or no one wins.
     func updateSymbol (blockIndex: Int) {
+        
         gameModel.resetTimer(timer: timer)
         listOfBlocks[blockIndex].image = gameModel.changeSymbol(blockIndex: blockIndex)
         listOfBlocks[blockIndex].isUserInteractionEnabled = false
@@ -178,22 +189,30 @@ class GameViewController: UIViewController {
         if gameModel.win || gameModel.even {
             
             aiTimer.invalidate()
-            
-
-            
-            print("WINNNNNNNN or Even")
+            print("Someone wins or even")
             showAlert()
             
         }else{
             timer = Timer.scheduledTimer(timeInterval: gameModel.timerInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             
             
-            // what to do with the inactive player's UI
+            // The inactive player's ProgressBar and text will be rest.
             listOfLabels[gameModel.activePlayerIndex()[0]].text = gameModel.activePlayer()
             listOfBars[gameModel.activePlayerIndex()[0]].progress = 1
         }
 
     
+    }
+    
+    // Action for shaking: Reset and Back to EntryViewController.
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        print ("Mobile is shaked")
+        self.gameModel.restartGame()
+        self.tableStack.isUserInteractionEnabled = true
+        gameModel.resetTimer (timer: timer)
+        gameModel.resetTimer (timer: aiTimer)
+        self.performSegue(withIdentifier: "goBackToMenu", sender: self)
+        
     }
     
     

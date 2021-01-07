@@ -168,7 +168,7 @@ struct GameModel{
                 print("Winning is XXXXXX ")
                 win=true
                 playerScores[1] += 1
-                alertTitle = "\(secondPlayer.name) Wins"
+                alertTitle = "\(secondPlayer.name) Wins!"
                 return
             }
             
@@ -176,7 +176,7 @@ struct GameModel{
                 print("Winning is OOOOOOO ")
                 win=true
                 playerScores[0] += 1
-                alertTitle = "\(firstPlayer.name) Wins"
+                alertTitle = "\(firstPlayer.name) Wins!"
                 return
             }
             else{
