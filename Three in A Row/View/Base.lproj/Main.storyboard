@@ -395,20 +395,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-h0-FPt" userLabel="Middle View">
                                         <rect key="frame" x="0.0" y="572.5" width="414" height="163.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u35-CZ-kn5">
-                                                <rect key="frame" x="52" y="37" width="310" height="90"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u35-CZ-kn5">
+                                                <rect key="frame" x="73" y="36" width="268" height="92"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-n7-bzZ">
-                                                        <rect key="frame" x="54" y="0.0" width="202" height="45"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
+                                                        <rect key="frame" x="50" y="0.0" width="168" height="42"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                         <state key="normal" title="2 Player Game"/>
                                                         <connections>
                                                             <action selector="twoPlayersPressed:" destination="SYc-is-d5h" eventType="touchUpInside" id="sgU-6m-oIl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-4o-zDu">
-                                                        <rect key="frame" x="0.0" y="45" width="310" height="45"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
+                                                        <rect key="frame" x="0.0" y="50" width="268" height="42"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                         <state key="normal" title="Play Against Computer"/>
                                                         <connections>
                                                             <action selector="playAgainstAIPressed:" destination="SYc-is-d5h" eventType="touchUpInside" id="ZCV-4e-kOl"/>
