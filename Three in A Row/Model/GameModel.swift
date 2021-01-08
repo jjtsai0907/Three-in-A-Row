@@ -219,6 +219,19 @@ struct GameModel{
         }
         
     }
+    
+    func entryVCCharacter (againstAI: Bool) -> UIImage {
+        
+        if againstAI {
+            let robotImage = #imageLiteral(resourceName: "robot")
+            
+            return robotImage
+        }else{
+            let waterCha = #imageLiteral(resourceName: "water_character")
+            return waterCha
+        }
+        
+    }
 
 
 }

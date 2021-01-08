@@ -18,7 +18,7 @@ class EntryViewController: UIViewController{
     
     var entryVCPlayAgainstAI : Bool = false
     
-    
+    let gameModel2 = GameModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +37,7 @@ class EntryViewController: UIViewController{
         playerTwoInput.alpha = 1.0
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
-        player2Image.image = #imageLiteral(resourceName: "water_character")
-
+        player2Image.image = gameModel2.entryVCCharacter (againstAI: entryVCPlayAgainstAI)
     }
     
     @IBAction func startGamePressed(_ sender: UIButton) {
@@ -53,8 +52,8 @@ class EntryViewController: UIViewController{
         playerOneInput.alpha = 1.0
         backToMenuButton.alpha = 1.0
         startGameButton.alpha = 1.0
-        player2Image.image = #imageLiteral(resourceName: "robot")
         entryVCPlayAgainstAI = true
+        player2Image.image = gameModel2.entryVCCharacter (againstAI: entryVCPlayAgainstAI)
         playerTwoInput.text = "Sexy AI"
         
     }
@@ -63,7 +62,7 @@ class EntryViewController: UIViewController{
     
     
     @IBAction func backToMenuPressed(_ sender: UIButton) {
-        resetLayout ()
+        resetSetting ()
         
     }
     
@@ -81,7 +80,7 @@ class EntryViewController: UIViewController{
         
     }
     
-    func resetLayout () {
+    func resetSetting () {
         twoPlayerButton.alpha = 1.0
         againstAIButton.alpha = 1.0
         playerOneInput.alpha = 0.0
